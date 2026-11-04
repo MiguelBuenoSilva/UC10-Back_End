@@ -2,6 +2,7 @@ package br.senac.sp.livraria.controller;
 
 import br.senac.sp.livraria.model.Livro;
 import br.senac.sp.livraria.service.LivroService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,9 +28,10 @@ public class LivroController {
     }
 
     @PostMapping
-    public ResponseEntity<Livro> salvar(@RequestBody Livro livro) {
+    public ResponseEntity<Livro> salvar(@Valid @RequestBody Livro livro) {
         Livro novoLivro = livroService.salvar(livro);
         return ResponseEntity.status(201).body(novoLivro);
+
     }
 
     @GetMapping
@@ -55,7 +57,7 @@ public class LivroController {
         }
 
         Map<String, Object> erro = new HashMap<>();
-        erro.put("status",404);
+        erro.put("status", 404);
         erro.put("mensagem", "O livro com ID " + id + " não foi encontrado!");
         erro.put("timestamp", LocalDateTime.now());
 
@@ -63,10 +65,10 @@ public class LivroController {
     }
 
     @PutMapping
-    public ResponseEntity<Livro> atualizarLivro( @RequestBody Livro livroAtualizado){
+    public ResponseEntity<Livro> atualizarLivro(@RequestBody Livro livroAtualizado) {
 
         Livro novoLivro = livroService.atualizar(livroAtualizado);
-        if (novoLivro!=null){
+        if (novoLivro != null) {
             return ResponseEntity.status(200).body(novoLivro);
         }
 
