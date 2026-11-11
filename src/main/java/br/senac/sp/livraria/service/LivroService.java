@@ -4,7 +4,6 @@ import br.senac.sp.livraria.model.Livro;
 import br.senac.sp.livraria.repository.LivroRepository;
 import org.springframework.stereotype.Service;
 
-
 import java.util.List;
 import java.util.Optional;
 
@@ -48,7 +47,7 @@ public class LivroService {
         return false;
     }
 
-    public Livro atualizar(Livro novoLivro){
+    public Livro atualizar(Livro novoLivro) {
 
         Optional<Livro> livroAtual = livroRepository.findById(novoLivro.getId());
 
@@ -57,8 +56,19 @@ public class LivroService {
         }
 
         return null;
+    }
 
+    public List<Livro> findByAnoEdicaoLessThan(int anoEdicao) {
+        return livroRepository.findByAnoEdicaoLessThan(anoEdicao);
+    }
 
+    public List<Livro> findByAutorStartingWith(String autor) {
+        return livroRepository.findByAutorStartingWith(autor);
+    }
+
+    public List<Livro> listarPrecoDeLivro(double valorInicial, double valorFinal) {
+
+        return livroRepository.listarPrecoDeLivro(valorInicial,valorFinal);
     }
 
 }
