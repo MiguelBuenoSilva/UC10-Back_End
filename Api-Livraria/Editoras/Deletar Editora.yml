@@ -1,0 +1,16 @@
+info:
+  name: Deletar Editora
+  type: http
+  seq: 7
+
+http:
+  method: DELETE
+  url: http://localhost:8080/v1/api/editoras/6
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

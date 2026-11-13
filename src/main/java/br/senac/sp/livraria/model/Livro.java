@@ -26,6 +26,10 @@ public class Livro {
     @JoinColumn(name = "id_editora", nullable = false)
     private Editora editora;
 
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", nullable = false)
+    private Categoria categoria;
+
     @Positive(message = "O preço do livro deve ser maior que zero!")
     private double preco;
 
@@ -33,7 +37,7 @@ public class Livro {
     private int anoEdicao;
 
     @Column(name = "data_lancamento")
-    @PastOrPresent(message = " A dta de lançamento deve ser uma data no passado!")
+    @PastOrPresent(message = " A data de lançamento deve ser uma data no passado!")
     private LocalDate dataLancamento;
 
     public LocalDate getDataLancamento() {
@@ -74,6 +78,14 @@ public class Livro {
 
     public void setEditora(Editora editora) {
         this.editora = editora;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
     public double getPreco() {

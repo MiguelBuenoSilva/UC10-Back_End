@@ -1,0 +1,26 @@
+info:
+  name: Atualizar Editora
+  type: http
+  seq: 6
+
+http:
+  method: PUT
+  url: http://localhost:8080/v1/api/editoras
+  body:
+    type: json
+    data: |-
+      {
+        
+        "nome": "Editora Rocco",
+        "email": "contato@rocco.com.br",
+        "id":5,
+        "urlSite": "www.rocco.com.br"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

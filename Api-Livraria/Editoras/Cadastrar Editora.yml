@@ -1,0 +1,27 @@
+info:
+  name: Cadastrar Editora
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:8080/v1/api/editoras
+  body:
+    type: json
+    data: |+
+      {
+        "nome": "Sextante",
+        "email": "contato@sextante.com.br",
+        "urlSite": "://sextante.com.br"
+      }
+
+
+        
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

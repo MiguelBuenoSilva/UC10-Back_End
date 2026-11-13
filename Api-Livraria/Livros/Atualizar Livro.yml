@@ -1,0 +1,37 @@
+info:
+  name: Atualizar Livro
+  type: http
+  seq: 7
+
+http:
+  method: PUT
+  url: http://localhost:8080/v1/api/livros
+  body:
+    type: json
+    data: |-
+      {
+        "anoEdicao": 2026,
+        "autor": "Miguel Bueno Silva",
+        "categoria": {
+          "id": 16,
+          "nome": "Desenvolvimento Pessoal"
+        },
+        "dataLancamento": "2026-11-13",
+        "editora": {
+          "email": "contato@sextante.com.br",
+          "id": 12,
+          "nome": "Sextante",
+          "urlSite": "www.sextante.com.br"
+        },
+        "id": 5,
+        "preco": 199.9,
+        "titulo": "Como Enloquecer Rápido 2 "
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

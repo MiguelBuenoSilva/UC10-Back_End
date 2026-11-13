@@ -1,0 +1,22 @@
+info:
+  name: Cadastrar Categorias
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:8080/v1/api/categorias
+  body:
+    type: json
+    data: |-
+      {
+        "nome":"fjjfsbndhdfbhjfdbjhdsfb"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

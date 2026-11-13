@@ -1,0 +1,27 @@
+info:
+  name: Cadastrar Livros
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:8080/v1/api/livros
+  body:
+    type: json
+    data: |-
+      {
+        "titulo": "One Piece",
+        "autor": "Eiichiro Oda",
+        "editora": {"id": 4 },
+        "preco": 40.00,
+        "anoEdicao": 1998,
+        "dataLancamento": "1998-07-22"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
