@@ -2,6 +2,7 @@ package br.senac.sp.livraria.controller;
 
 import br.senac.sp.livraria.model.Categoria;
 import br.senac.sp.livraria.service.CategoriaService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1/api/categorias")
+@Tag(name = "Categorias", description = "API responsável por gerenciar as categorias do livro .Com essa API será possível inserir, atualizar, listar e excluir as categorias do sistema.")
 public class CategoriaController {
     private CategoriaService categoriaService;
 
@@ -45,7 +47,7 @@ public class CategoriaController {
         }
     }
 
-    @GetMapping(value = {"", "/"}, params = "nome")
+    @GetMapping("/nome-categoria")
     public ResponseEntity<List<Categoria>> findByAutorStartingWith(@RequestParam String nome) {
         return ResponseEntity.status(200).body(categoriaService.findByNomeStartingWith(nome));
     }

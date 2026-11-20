@@ -2,6 +2,7 @@ package br.senac.sp.livraria.controller;
 
 import br.senac.sp.livraria.model.Editora;
 import br.senac.sp.livraria.service.EditoraService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1/api/editoras")
+@Tag(name = "Editoras", description = "API responsável por gerenciar as editoras do livro .Com essa API será possível inserir, atualizar, listar e excluir as editoras do sistema.")
 public class EditoraController {
 
     private EditoraService editoraService;
@@ -46,7 +48,7 @@ public class EditoraController {
         }
     }
 
-    @GetMapping(value = {"", "/"}, params = "nome")
+    @GetMapping("/nome-editora")
     public ResponseEntity<List<Editora>> findByAutorStartingWith(@RequestParam String nome) {
         return ResponseEntity.status(200).body(editoraService.findByNomeStartingWith(nome));
     }
